@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Script</title>
+    <link rel="stylesheet" href="ASSETS/CSS/main.css">
+    <link rel="stylesheet" href="ASSETS/CSS/messages.css">
+</head>
+<body>
+    <div class="container">
+        <?php
+            include "messages.php";
+            include "script_conexao.php";
+
+            $nome = $_POST["nome"];
+            $email = $_POST["email"];
+            $tel = $_POST["tel"];
+            $endereco = $_POST["endereco"];
+            $data_nascimento = $_POST["data_nascimento"];
+
+            // echo "Pessoa Criada: <br>
+            //     Nome = $name; email = $email; telefone = $tel; endereço = $endereco;
+            // "    
+
+
+            $sql = "INSERT INTO `pessoas`(`nome`, `email`, `telefone`, `endereco`, `data_nascimento`) VALUES ('$nome','$email','$tel','$endereco', '$data_nascimento')";
+
+            if(mysqli_query($conn, $sql)){
+                mensagem("$nome Cadastrado com sucesso!", "success");  
+            } else{
+                mensagem("$nome NÃO foi cadastrado", "error");
+            };
+        ?>    
+
+        <div class="btn-container">
+            <a href="cadastro.php" class="btn btn-return">Voltar</a>
+        </div>
+    </div>
+</body>
+</html>
