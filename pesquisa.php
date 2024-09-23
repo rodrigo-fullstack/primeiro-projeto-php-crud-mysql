@@ -57,6 +57,8 @@
 
             <tbody>
                 <?php
+                
+                    include "script_mostra_data.php";
                     while($linha = mysqli_fetch_assoc($dados)){
                         // Incompatível:$linha_container = "<tr>";
                         // forEach($linha as $key => $value){
@@ -69,11 +71,12 @@
                         $tel = $linha["telefone"];
                         $endereco = $linha["endereco"];
                         $data_nascimento = $linha["data_nascimento"];
+                        $data_nascimento = mostra_data($data_nascimento);
 
                         echo 
                         "<tr>
-                            <th scope = 'row'>$id</td>
-                            <th>$nome</td>
+                            <th scope = 'row'>$id</th>
+                            <th>$nome</th>
                             <td>$email</td>
                             <td>$tel</td>
                             <td>$endereco</td>
