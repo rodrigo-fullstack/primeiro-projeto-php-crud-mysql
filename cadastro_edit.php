@@ -11,7 +11,7 @@
 
 <?php 
     include "script_conexao.php";
-    $id = $_GET["id"];
+    $id = $_GET["id"] ?? '';
 
     $sql = "SELECT * FROM pessoas WHERE id_pessoa = $id";
 
