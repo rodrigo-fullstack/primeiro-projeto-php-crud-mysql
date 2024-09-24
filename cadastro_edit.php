@@ -51,7 +51,7 @@
             </div>
 
             <div class="btn-container">
-                <a href="index.php" class="btn btn-return">Voltar</a>
+                <a href="pesquisa.php" class="btn btn-return">Voltar</a>
                 <button type="submit" class="btn btn-submit" >Salvar Alterações</button>
                 <input type="hidden" name="id" id="id" value="<?php echo $id?>">
             </div>
