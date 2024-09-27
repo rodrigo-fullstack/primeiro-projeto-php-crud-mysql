@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pesquisa de Dados</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="ASSETS/CSS/main.css">
     <link rel="stylesheet" href="ASSETS/CSS/pesquisa.css">
     <link rel="stylesheet" href="ASSETS/CSS/input.css">
+    <link rel="stylesheet" href="ASSETS/CSS/form-modal.css">
+    
 </head>
 
 <body>
@@ -83,7 +86,9 @@
                             <td>
                                 <div class='btn-container'>
                                     <a class='btn' href='cadastro_edit.php?id=$id'>Editar</a>
-                                    <a class='btn btn-remove' href='#'>Remover</a>
+                                    <button type='button' class='btn btn-remove' data-bs-toggle='modal' data-bs-target='#confirma' onclick=" . '"'. "pegarDados('$id', '$nome')" . '"' . ">
+                      Excluir
+                    </button>
                                 </div>
                             </td>
                         </tr>";
@@ -94,5 +99,40 @@
         </table>
     </div>    
 
+<!-- Modal -->
+<div class="modal fade" id="confirma" tabindex="-1" aria-labelledby="confirma" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Deseja Remover o <var id="name"></var>?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-footer">
+            <form action = "script_remove.php" method = "POST" class="form-modal">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-remove">Remover</button>
+                <input type="hidden" class="send-id" value ="" name="id" id="id">
+                <input type="hidden" class="send-name" value="" name="nome" id="nome">
+            </form>
+        </div>
+    </div>
+  </div>
+</div>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    function pegarDados(id, nome){
+       nameVar = document.querySelector("#name");
+       nameVar.innerHTML += nome;
+       
+       enviarId = document.querySelector(".send-id");
+       enviarId.value = id;
+       
+       enviarNome = document.querySelector(".send-name")
+       enviarNome.value = nome;
+    }
+
+
+</script>
 </html>
