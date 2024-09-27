@@ -6,12 +6,12 @@
         
         if(!$vetor_arquivo['error'] && $tipo_arquivo == "image"){
             
-            $nome_foto = md5($vetor_arquivo['name']) . ".jpg";
             $extensao_foto = $vetor_tipo_mime[1];
+            $nome_foto = md5($vetor_arquivo['name']) . ".$extensao_foto";
             //$_SERVER['DOCUMENT_ROOT'] realiza a captura da pasta raiz de execução do PHP
             $pasta_foto = $_SERVER['DOCUMENT_ROOT'] . '/BackEndPHP/PHP_CRUD_MySQL/ASSETS/IMG/';
 
-            move_uploaded_file($vetor_arquivo['tmp_name'], $pasta_foto . $nome_foto . ".$extensao_foto");
+            move_uploaded_file($vetor_arquivo['tmp_name'], $pasta_foto . $nome_foto);
     
             return $nome_foto;
         } else if($vetor_arquivo["error"]){
