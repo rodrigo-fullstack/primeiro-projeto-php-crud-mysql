@@ -13,19 +13,22 @@
         <?php
             include "messages.php";
             include "script_conexao.php";
+            include "trabalhando_fotos.php";
 
             $nome = $_POST["nome"];
             $email = $_POST["email"];
             $tel = $_POST["tel"];
             $endereco = $_POST["endereco"];
             $data_nascimento = $_POST["data_nascimento"];
-
+            $foto = $_FILES["file"];
+            $nome_foto = $foto["name"];
+            echo $nome_foto;
             // echo "Pessoa Criada: <br>
             //     Nome = $name; email = $email; telefone = $tel; endereço = $endereco;
             // "    
 
 
-            $sql = "INSERT INTO `pessoas`(`nome`, `email`, `telefone`, `endereco`, `data_nascimento`) VALUES ('$nome','$email','$tel','$endereco', '$data_nascimento')";
+            $sql = "INSERT INTO `pessoas`(`nome`, `email`, `telefone`, `endereco`, `data_nascimento`) VALUES ('$nome','$email','$tel','$endereco', '$data_nascimento', '$nome_foto')";
 
             if(mysqli_query($conn, $sql)){
                 mensagem("$nome Cadastrado com sucesso!", "success");  

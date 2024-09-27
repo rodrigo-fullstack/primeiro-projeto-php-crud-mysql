@@ -14,26 +14,32 @@
             <h1>Cadastro das Pessoas</h1>
             <p>Digite seus dados a seguir</p>
         </section>
-        <form action="script_cadastro.php" method="POST">
+        <form action="script_cadastro.php" method="POST" enctype="multipart/form-data">
             <div class="input-row" id="name-box">
                 <label for="nome">Nome:</label>
-                <input type="text" name="nome" id="nome" required>
+                <input type="text" name="nome" id="nome" required class="input-text">
             </div>
             <div class="input-row" id="email-box">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" class="input-text">
             </div>
             <div class="input-row">
                 <label for="tel" id="tel-box">Telefone:</label>
-                <input type="tel" name="tel" id="tel">
+                <input type="tel" name="tel" id="tel" class="input-text">
             </div>
             <div class="input-row" id="endereco-box">
                 <label for="endereco">Endereço: </label>
-                <input type="adress" name="endereco" id="endereco" required>
+                <input type="adress" name="endereco" id="endereco" required class="input-text">
             </div>
+
             <div class="input-row" id="endereco-box">
                 <label for="endereco">Data de Nascimento: </label>
-                <input type="date" name="data_nascimento" id="data_nascimento" required>
+                <input type="date" name="data_nascimento" id="data_nascimento" class="input-text" required>
+            </div>
+
+            <div class="input-row" id="endereco-box">
+                <label for="file">Foto:</label>
+                <input type="file" class="input-file" name="file" id="file">
             </div>
 
             <div class="btn-container">
