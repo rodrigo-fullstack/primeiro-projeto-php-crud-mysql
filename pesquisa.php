@@ -50,6 +50,7 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
+                    <th>Foto</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Email</th>
                     <th scope="col">Telefone</th>
@@ -74,11 +75,13 @@
                         $tel = $linha["telefone"];
                         $endereco = $linha["endereco"];
                         $data_nascimento = $linha["data_nascimento"];
+                        $nome_foto = $linha["foto"];
                         $data_nascimento = mostra_data($data_nascimento);
 
                         echo 
                         "<tr>
                             <th scope = 'row'>$id</th>
+                            <td><img src='./ASSETS/IMG/$nome_foto' width='48'></td>
                             <th>$nome</th>
                             <td>$email</td>
                             <td>$tel</td>
