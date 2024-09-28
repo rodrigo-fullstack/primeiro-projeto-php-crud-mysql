@@ -22,9 +22,9 @@
             return $nome_foto;
         } else if($vetor_arquivo["error"]){
             mensagem("Foto vazia", "success");
-            return 0;
+            return null;
         } else{
-            mensagem("Você não pode enviar arquivos de tipos diferentes de imagens", "error");
+            mensagem("Você não pode enviar arquivos de tipos diferentes", "error");
             return -1;
             //Enviando exceção
             // $erro = new Exception("Erro na imagem");

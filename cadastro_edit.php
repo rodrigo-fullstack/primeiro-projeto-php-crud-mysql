@@ -18,7 +18,6 @@
     $dados = mysqli_query($conn, $sql);
 
     $linha = mysqli_fetch_assoc($dados);
-
 ?>
 
 <body>
@@ -45,9 +44,15 @@
                 <label for="endereco">Endereço: </label>
                 <input type="adress" name="endereco" id="endereco" required value="<?php echo $linha['endereco']?>">
             </div>
+            
             <div class="input-row" id="endereco-box">
                 <label for="data_nascimento">Data de Nascimento: </label>
                 <input type="date" name="data_nascimento" id="data_nascimento" required value="<?php echo $linha['data_nascimento']?>">
+            </div>
+            
+            <div class="input-row" id="endereco-box">
+                <label for="file">Foto:</label>
+                <input type="file" class="input-file" name="foto" id="foto" accept="image/*" value = "<?php echo $linha['foto'] ?>">
             </div>
 
             <div class="btn-container">
