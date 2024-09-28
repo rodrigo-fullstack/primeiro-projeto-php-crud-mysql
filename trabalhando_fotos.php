@@ -3,8 +3,10 @@
         $tipo_mime = $vetor_arquivo['type'];
         $vetor_tipo_mime = explode('/', $tipo_mime);
         $tipo_arquivo = $vetor_tipo_mime[0];
-        
-        if(!$vetor_arquivo['error'] && $tipo_arquivo == "image"){
+
+
+        //&& possui maior prioridade do que and */
+        if(!$vetor_arquivo['error'] && $tipo_arquivo == 'image' && $vetor_arquivo['size'] < 500000){
             
             $extensao_foto = $vetor_tipo_mime[1];
             

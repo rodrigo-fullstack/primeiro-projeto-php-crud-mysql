@@ -38,7 +38,7 @@
         <header>
             <h1>Pesquisa de Dados</h1>
             <form action = "pesquisa.php" class="input-box" method="POST">
-                <input type="search" name="busca" id="busca" placeholder="Nome" autofocus>
+                <input type="search" name="busca" id="busca" placeholder="Nome" autofocus class="input-text">
                 <button type="submit" class="btn btn-search">
                     <img src="ASSETS/IMG/search_icon.svg" alt="" class="search-icon">
                 </button>
@@ -75,13 +75,14 @@
                         $tel = $linha["telefone"];
                         $endereco = $linha["endereco"];
                         $data_nascimento = $linha["data_nascimento"];
-                        $nome_foto = $linha["foto"];
                         $data_nascimento = mostra_data($data_nascimento);
+                        $nome_foto = $linha["foto"];
+                        $imagem = $nome_foto ?? '' ? "<img src = './ASSETS/IMG/$nome_foto' width=48" : '';
 
                         echo 
                         "<tr>
                             <th scope = 'row'>$id</th>
-                            <td><img src='./ASSETS/IMG/$nome_foto' width='48'></td>
+                            <td>$imagem</td>
                             <th>$nome</th>
                             <td>$email</td>
                             <td>$tel</td>
@@ -135,7 +136,5 @@
        enviarNome = document.querySelector(".send-name")
        enviarNome.value = nome;
     }
-
-
 </script>
 </html>
