@@ -12,11 +12,23 @@
     <div class="container">
       <?php
             include "script_conexao.php";
+            include "trabalhando_fotos.php";
             include "messages.php";
             
             $id = $_POST["id"];
             $nome = $_POST["nome"];
             
+            $sql = "SELECT foto FROM pessoas WHERE id_pessoa = $id";
+
+            if($dados = mysqli_query($conn, $sql)){
+                $coluna_foto = mysqli_fetch_assoc($dados);
+                $nome_foto = $coluna_foto['foto'];
+                if(isset($nome_foto)){
+                    excluir_foto($nome_foto);
+                    mensagem('Excluída foto da base de dados', "success");
+                }
+            }
+
             $sql = "DELETE from pessoas WHERE id_pessoa = '$id'";
             
             if ( mysqli_query($conn, $sql) ){

@@ -76,8 +76,8 @@
                         $endereco = $linha["endereco"];
                         $data_nascimento = $linha["data_nascimento"];
                         $data_nascimento = mostra_data($data_nascimento);
-                        $nome_foto = $linha["foto"];
-                        $imagem = $nome_foto ?? '' ? "<img src = './ASSETS/IMG/$nome_foto' width=48" : '';
+                        $coluna_foto = $linha["foto"];
+                        $imagem = $coluna_foto ?? '' ? "<img src = './ASSETS/IMG/$coluna_foto' width=48" : '';
 
                         echo 
                         "<tr>

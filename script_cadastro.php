@@ -21,13 +21,13 @@
             $endereco = $_POST["endereco"];
             $data_nascimento = $_POST["data_nascimento"];
             $foto = $_FILES["foto"];
-            $nome_foto = mover_foto($foto);
+            $coluna_foto = mover_foto($foto);
             // echo "Pessoa Criada: <br>
             //     Nome = $name; email = $email; telefone = $tel; endereço = $endereco;
             // "    
 
-            if($nome_foto != -1){
-                $sql = "INSERT INTO `pessoas`(`nome`, `email`, `telefone`, `endereco`, `data_nascimento`, `foto`) VALUES ('$nome','$email','$tel','$endereco', '$data_nascimento', '$nome_foto')";
+            if($coluna_foto != -1){
+                $sql = "INSERT INTO `pessoas`(`nome`, `email`, `telefone`, `endereco`, `data_nascimento`, `foto`) VALUES ('$nome','$email','$tel','$endereco', '$data_nascimento', '$coluna_foto')";
                 
                 if(mysqli_query($conn, $sql)){
                     mensagem("$nome Cadastrado com sucesso!", "success");  
