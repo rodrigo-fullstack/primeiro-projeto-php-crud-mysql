@@ -23,18 +23,29 @@
 			$data_nascimento = $_POST["data_nascimento"];
 			$nome_foto = $_FILES['foto'];
 
-			//Se estiver vazio no input file:
-			if($nome_foto["error"]){
-				//Capturar nome da imagem do bd e enviar novamente para o BD
-				$nome_foto = $_POST['foto-antiga'];
-
-			} else{ //Se não estiver vazio:
+			//Se não estiver vazio no input file e houver foto antiga:
+			if( (!$nome_foto['error']) && !empty($_POST['foto-antiga']) ){
 				//Capturar novo nome
 				$nome_foto = mover_foto($_FILES['foto']);
 				
 				//Exclui a foto antiga
 				$foto_antiga = $_POST['foto-antiga'];
 				excluir_foto($foto_antiga);
+				
+				
+			} 
+
+			//Se não houver foto antiga, não exclui a foto antiga
+			else if ( (!$nome_foto['error']) && empty($_POST['foto-antiga']) ){ 
+					$nome_foto = mover_foto($_FILES['foto']);
+			} 
+			
+			//Se não houver mudança de foto, permanece como era antes (nulo ou a antiga)
+			else{
+					
+				//Capturar nome da imagem do bd e enviar novamente para o BD
+				$nome_foto = $_POST['foto-antiga'];
+				echo 'condicional $nome_foto[error]';
 			}
 			
 			// Atualizando no BD
