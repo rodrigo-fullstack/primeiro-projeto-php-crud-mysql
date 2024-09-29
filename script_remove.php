@@ -23,9 +23,11 @@
             if($dados = mysqli_query($conn, $sql)){
                 $coluna_foto = mysqli_fetch_assoc($dados);
                 $nome_foto = $coluna_foto['foto'];
-                if(isset($nome_foto)){
+                if(!empty($nome_foto)){
                     excluir_foto($nome_foto);
                     mensagem('Excluída foto da base de dados', "success");
+                } else{
+                    mensagem("Usuário não possui foto", "success");
                 }
             }
 

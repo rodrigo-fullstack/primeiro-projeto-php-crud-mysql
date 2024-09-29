@@ -21,16 +21,16 @@
 			$telefone = $_POST["tel"];
 			$endereco = $_POST["endereco"];
 			$data_nascimento = $_POST["data_nascimento"];
-			$coluna_foto = $_FILES['foto'];
+			$nome_foto = $_FILES['foto'];
 
 			//Se estiver vazio no input file:
-			if($coluna_foto["error"]){
+			if($nome_foto["error"]){
 				//Capturar nome da imagem do bd e enviar novamente para o BD
-				$coluna_foto = $_POST['foto-antiga'];
+				$nome_foto = $_POST['foto-antiga'];
 
 			} else{ //Se não estiver vazio:
 				//Capturar novo nome
-				$coluna_foto = mover_foto($_FILES['foto']);
+				$nome_foto = mover_foto($_FILES['foto']);
 				
 				//Exclui a foto antiga
 				$foto_antiga = $_POST['foto-antiga'];
@@ -38,7 +38,7 @@
 			}
 			
 			// Atualizando no BD
-			$sql = "UPDATE pessoas set nome = '$nome', email = '$email', telefone = '$telefone', endereco = '$endereco', data_nascimento = '$data_nascimento', foto = '$coluna_foto' WHERE id_pessoa = '$id'";
+			$sql = "UPDATE pessoas set nome = '$nome', email = '$email', telefone = '$telefone', endereco = '$endereco', data_nascimento = '$data_nascimento', foto = '$nome_foto' WHERE id_pessoa = '$id'";
 			
 			if(mysqli_query($conn, $sql)){
 				mensagem("$nome ALTERADO com Sucesso!", "success");
