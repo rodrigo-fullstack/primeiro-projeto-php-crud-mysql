@@ -45,7 +45,6 @@
 					
 				//Capturar nome da imagem do bd e enviar novamente para o BD
 				$nome_foto = $_POST['foto-antiga'];
-				echo 'condicional $nome_foto[error]';
 			}
 			
 			// Atualizando no BD
