@@ -32,4 +32,12 @@
             // throw $erro;
         }
     }
+
+    function excluirFotoAntiga($foto_antiga){
+        $caminho_foto_antiga = "./ASSETS/IMG/$foto_antiga";
+        if(file_exists($caminho_foto_antiga)){
+            echo "Excluindo foto antiga";
+            unlink($caminho_foto_antiga);
+        }
+    }
 ?>
