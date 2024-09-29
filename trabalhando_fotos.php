@@ -33,7 +33,7 @@
         }
     }
 
-    function excluirFotoAntiga($foto_antiga){
+    function excluir_foto($foto_antiga){
         $caminho_foto_antiga = "./ASSETS/IMG/$foto_antiga";
         if(file_exists($caminho_foto_antiga)){
             echo "Excluindo foto antiga";

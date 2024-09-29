@@ -34,7 +34,7 @@
 				
 				//Exclui a foto antiga
 				$foto_antiga = $_POST['foto-antiga'];
-				excluirFotoAntiga($foto_antiga);
+				excluir_foto($foto_antiga);
 			}
 			
 			// Atualizando no BD
