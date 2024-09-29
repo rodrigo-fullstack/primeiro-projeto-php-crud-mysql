@@ -33,11 +33,11 @@
         }
     }
 
-    function excluir_foto($foto_antiga){
-        $caminho_foto_antiga = "./ASSETS/IMG/$foto_antiga";
-        if(file_exists($caminho_foto_antiga)){
+    function excluir_foto($nome_foto){
+        $caminho_foto = "./ASSETS/IMG/$nome_foto";
+        if(file_exists($caminho_foto)){
             echo "Excluindo foto antiga";
-            unlink($caminho_foto_antiga);
+            unlink($caminho_foto);
         }
     }
 ?>
