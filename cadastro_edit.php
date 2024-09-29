@@ -26,7 +26,7 @@
             <h1>Cadastro das Pessoas</h1>
             <p>Digite seus dados a seguir</p>
         </section>
-        <form action="script_edit.php" method="POST">
+        <form action="script_edit.php" method="POST" enctype="multipart/form-data">
             <div class="input-row" id="name-box">
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" id="nome" value="<?php echo $linha['nome'] ?>" required>
@@ -52,7 +52,8 @@
             
             <div class="input-row" id="endereco-box">
                 <label for="file">Foto:</label>
-                <input type="file" class="input-file" name="foto" id="foto" accept="image/*" value = "<?php echo $linha['foto'] ?>">
+                <input type="file" class="input-file" name="foto" id="foto" accept="image/*">
+                <input type="hidden" name="foto-antiga" id="foto-antiga" value="<?php echo $linha['foto'] ?>">
             </div>
 
             <div class="btn-container">

@@ -12,6 +12,7 @@
     <div class="container">
       	<?php
 			include "script_conexao.php";
+			include "trabalhando_fotos.php";
 			include "messages.php";
 
 			$id = $_POST["id"];
@@ -20,7 +21,19 @@
 			$telefone = $_POST["tel"];
 			$endereco = $_POST["endereco"];
 			$data_nascimento = $_POST["data_nascimento"];
-			$nome_foto = $_FILES["foto"];
+			$nome_foto = $_FILES['foto'];
+
+			//Se estiver vazio no input file
+			if($nome_foto["error"]){
+				//Capturar nome da imagem do bd e enviar novamente para o BD
+				$nome_foto = $_POST['foto-antiga'];
+
+			} else{
+				//Capturar novo nome
+				$nome_foto = mover_foto($_FILES['foto']);
+				$foto_antiga = $_POST['foto-antiga'];
+				
+			}
 			
 			// Atualizando no BD
 			$sql = "UPDATE pessoas set nome = '$nome', email = '$email', telefone = '$telefone', endereco = '$endereco', data_nascimento = '$data_nascimento', foto = '$nome_foto' WHERE id_pessoa = '$id'";

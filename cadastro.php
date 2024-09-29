@@ -39,7 +39,7 @@
 
             <div class="input-row" id="endereco-box">
                 <label for="file">Foto:</label>
-                <input type="file" class="input-file" name="file" id="file" accept="image/*">
+                <input type="file" class="input-file" name="foto" id="foto" accept="image/*">
             </div>
 
             <div class="btn-container">
