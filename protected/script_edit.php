@@ -24,7 +24,6 @@
 			$nome_foto = $_FILES['foto'];
 
 			//Se não estiver vazio no input file e houver foto antiga:
-			if(validarFoto())
 			if( (!$nome_foto['error']) && !empty($_POST['foto-antiga']) ){
 				//Capturar novo nome
 				$nome_foto = mover_foto($_FILES['foto']);
