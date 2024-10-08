@@ -15,7 +15,7 @@
             <h1>Login</h1>
             <p>Digite os dados do administrador:</p>
         </header>
-        <form action="protected/script_login.php" method="POST">
+        <form action="index.php" method="POST">
             
             <div class="input-row">
                 <label for="login">Login</label>
@@ -32,6 +32,26 @@
             </div>
             
         </form>
+
+        <?php
+
+            if(isset($_POST['login'])){
+                $login = $_POST['login'];
+                $senha = $_POST['senha'];
+                
+                if($login == 'admin' && $senha == 'admin'){
+                    session_start();
+                    $_SESSION['user'];
+                    header("location: protected");
+
+                } else{
+                    echo "Não entrou no sistema";
+                }
+
+            }
+            
+        ?>
+
     </div>
 </body>
 </html>
