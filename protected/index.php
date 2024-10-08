@@ -21,6 +21,7 @@
         <div class="btn-container">
             <a href="cadastro.php" class="btn">Cadastrar</a>
             <a href="pesquisa.php" class="btn">Pesquisar</a>
+            <a href="../sair.php" class="btn btn-remove">Sair</a>
         </div>
     </div>
 
