@@ -41,7 +41,7 @@
                 
                 if($login == 'admin' && $senha == 'admin'){
                     session_start();
-                    $_SESSION['user'];
+                    $_SESSION['user'] = 'admin';
                     header("location: protected");
 
                 } else{
