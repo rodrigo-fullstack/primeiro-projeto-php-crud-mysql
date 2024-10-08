@@ -6,7 +6,7 @@
 
 
         //&& possui maior prioridade do que and */
-        if(!$vetor_arquivo['error'] && $tipo_arquivo == 'image' && $vetor_arquivo['size'] < 500000){
+        if(validarFoto($vetor_arquivo, $tipo_arquivo)){
             
             $extensao_foto = $vetor_tipo_mime[1];
             
@@ -40,4 +40,9 @@
             unlink($caminho_foto);
         }
     }
+    
+    function validarFoto($vetor_arquivo, $tipo_arquivo){
+        return !$vetor_arquivo['error'] && $tipo_arquivo == 'image' && $vetor_arquivo['size'] < 500000;
+    }
+
 ?>
