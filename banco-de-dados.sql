@@ -2,6 +2,10 @@ CREATE DATABASE IF NOT EXISTS `empresas_php`;
 
 USE `empresas_php`;
 
+CREATE USER 'app_user'@'localhost' IDENTIFIED BY 'senha_segura';
+GRANT ALL PRIVILEGES ON empresas_php.* TO 'app_user'@'localhost';
+FLUSH PRIVILEGES;
+
 CREATE TABLE `pessoas` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `nome` VARCHAR(100) NOT NULL,
