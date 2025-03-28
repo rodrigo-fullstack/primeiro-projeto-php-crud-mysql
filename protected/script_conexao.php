@@ -1,9 +1,9 @@
 <?php
 
 $server = "localhost";
-$user = "root";
-$senha = "";
-$banco = "empresa_php";
+$user = "app_user";
+$senha = "senha_segura";
+$banco = "empresas_php";
 
 $conn = mysqli_connect($server, $user, $senha, $banco );
 
